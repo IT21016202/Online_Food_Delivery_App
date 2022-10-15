@@ -74,7 +74,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/name_txt"
         android:layout_width="317dp"
         android:layout_height="51dp"
         android:background="@drawable/login_form_inputs"
@@ -86,7 +86,7 @@
         app:layout_constraintVertical_bias="0.282" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText"
+        android:id="@+id/phone_txt"
         android:layout_width="323dp"
         android:layout_height="56dp"
         android:background="@drawable/login_form_inputs"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText2"
+        android:id="@+id/address_txt"
         android:layout_width="320dp"
         android:layout_height="47dp"
         android:background="@drawable/login_form_inputs"
