@@ -91,5 +91,18 @@
     <string name="myOrdrs_heading">My Orders</string>
     <string name="ordrId_txt">Order ID</string>
 
+    <string name="app_name2">Online Food </string><string
+    name ="add_category">Category</string><string
+    name="add_name">Name</string><string
+    name="add_price">Price</string><string
+    name="add_description">Description</string><string
+    name="addPhoto_btn">Add Photo</string><string
+    name="edit_btn">Edit</string><string
+    name="delete_btn">Delete</string><string
+    name="add_cartBtn">Add Cart</string> <string
+    name="checkoutBtn">CheckOut</string><string
+    name="viewBtn">View</string><string
+    name="addNewBtn">Add New</string>
+
 
 </resources>

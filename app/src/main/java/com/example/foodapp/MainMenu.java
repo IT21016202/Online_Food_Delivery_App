@@ -16,8 +16,7 @@ public class MainMenu extends AppCompatActivity {
     private Button atcBtn1;
     private Button atcBtn2;
     private Button atcBtn3;
-
-    //private Button viewButton;
+    private Button viewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +80,15 @@ public class MainMenu extends AppCompatActivity {
                 openCart();
             }
         });
-//        viewButton = (Button) findViewById(R.id.btnClick);
-//        viewButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//                openMymenuPage();
-//
-//            }
-//
-//        });
+        viewButton = (Button) findViewById(R.id.btnClick);
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMyMenu();
+            }
+        });
+
+
     }
 
     private void openCart() {
@@ -102,10 +100,10 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(this, com.example.foodapp.Order_Details.class);
         startActivity(intent);
     }
+    private void openMyMenu(){
+        Intent intent = new Intent(this, MyMenu.class);
+        startActivity(intent);
+    }
 
-//        public void openMymenuPage(){
-//            Intent intent = new Intent(this, My_Menu.class);
-//            startActivity(intent);
-//
-//        }
+
     }

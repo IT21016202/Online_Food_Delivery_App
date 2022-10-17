@@ -58,6 +58,8 @@
         <activity
             android:name=".UserAccount"
             android:exported="false" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -103,8 +105,21 @@
             <!--            </intent-filter>-->
         </activity>
 
+
+        <activity
+            android:name=".MyMenu"
+            android:exported="false"/>
+        <activity
+            android:name=".EditMenu"
+            android:exported="false"/>
+        <activity
+            android:name=".AddMenu"
+            android:exported="false"/>
         <activity android:name=".MainMenu"
             android:exported="true" >
+
+
+
 
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
