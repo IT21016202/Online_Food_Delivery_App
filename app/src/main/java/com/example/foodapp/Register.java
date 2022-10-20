@@ -127,7 +127,6 @@ public class Register extends AppCompatActivity {
     }
 
 
-
     public boolean validateEmail(){
         String userEmail = email.getText().toString();
         if (userEmail.isEmpty()){

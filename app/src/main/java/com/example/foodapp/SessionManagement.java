@@ -39,5 +39,4 @@ public class SessionManagement {
         editor.putInt(SESSION_KEY, -1).commit();
     }
 
-
 }
