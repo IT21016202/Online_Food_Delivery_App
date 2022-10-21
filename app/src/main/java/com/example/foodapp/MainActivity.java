@@ -1,3 +1,4 @@
+
 package com.example.foodapp;
 
 import androidx.appcompat.app.AppCompatActivity;

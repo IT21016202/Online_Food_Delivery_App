@@ -15,7 +15,7 @@ public class enrolment extends AppCompatActivity {
     private Button canclOdrBtn;
     private EditText name, phone, address;
     private Context context;
-    private DBHandler dbHandler;
+    //private DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +44,14 @@ public class enrolment extends AppCompatActivity {
             }
         });
 
-//        submitBtn = (Button) findViewById(R.id.btnSubmit1);
-//        submitBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openOdrSummry();
-//            }
-//        });
+        submitBtn = (Button) findViewById(R.id.btnSubmit1);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openOdrSummry();
+            }
+        });
+
 
         canclOdrBtn = (Button) findViewById(R.id.btncanclOdr1);
         canclOdrBtn.setOnClickListener(new View.OnClickListener() {
