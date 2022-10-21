@@ -1,9 +1,10 @@
+
 package com.example.foodapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -13,6 +14,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;
@@ -32,9 +38,8 @@ public class Register extends AppCompatActivity {
 
     private Button registerButton;
     private EditText fullName, email, mobile, birthDate, password, rePassword;
-    private DBHandler dbHandler;
-    private Context context;
     private TextView alreadyHaveAccount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +61,6 @@ public class Register extends AppCompatActivity {
         birthDate = findViewById(R.id.inputBirthDate);
         password = findViewById(R.id.inputPassowrdReg);
         rePassword = findViewById(R.id.inputReEnterPasswordReg);
-
-        context = this;
-        dbHandler = new DBHandler(context);
 
         birthDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,21 +92,29 @@ public class Register extends AppCompatActivity {
                String userMobile = mobile.getText().toString();
                String userBirthDate = birthDate.getText().toString();
                String userPassword = password.getText().toString();
-               //String userRePassword = rePassword.getText().toString();
                long regDate = System.currentTimeMillis();
 
                if (validateName() && validateEmail() && validateMobile() && validBirthDate() && validatePassword()){
                    UserModel userModel = new UserModel(userFullName, userEmail, userMobile, userBirthDate, userPassword, regDate);
 
-                   if (!dbHandler.checkUsername(userEmail)){
-                       boolean result = dbHandler.registerUser(userModel);
+                   //UserModel userOb = new UserModel();
+                   DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Customers");
 
-                       if (result) {
-                           Toast.makeText(getApplicationContext(), "Registration Successful !", Toast.LENGTH_LONG).show();
-                           goToMenuPage();
-                       }else
-                           Toast.makeText(getApplicationContext(), "Registration Unsuccessful !", Toast.LENGTH_LONG).show();
-                   }else {
+                   if (/*!dbHandler.checkUsername(userEmail)*/true){
+                       dbRef.push().setValue(userModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void unused) {
+                               Toast.makeText(getApplicationContext(), "Registration Successful !", Toast.LENGTH_LONG).show();
+                               goToMenuPage();
+                           }
+                       }).addOnFailureListener(new OnFailureListener() {
+                           @Override
+                           public void onFailure(@NonNull Exception e) {
+                               Toast.makeText(getApplicationContext(), "Registration Unsuccessful !", Toast.LENGTH_LONG).show();
+                           }
+                       });
+                   }
+                   else {
                        Toast.makeText(getApplicationContext(), "User Already Existed! Please Login", Toast.LENGTH_LONG).show();
                        email.setError("Email is Already Taken !");
                    }
@@ -210,3 +220,4 @@ public class Register extends AppCompatActivity {
     }
 
 }
+

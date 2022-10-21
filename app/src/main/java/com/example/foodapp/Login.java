@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     private Button loginButtonInLogin;
     private EditText username, password;
     private TextView didntHaveAccount;
-    DBHandler dbHandler;
+    //DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.inputUsername);
         password = findViewById(R.id.inputPasswordLogin);
         didntHaveAccount = findViewById(R.id.txtDidntHaveAccount);
-        dbHandler = new DBHandler(this);
+        //dbHandler = new DBHandler(this);
 
         loginButtonInLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
 
                 String userEmail = username.getText().toString();
                 String userPassword = password.getText().toString();
-                boolean res = dbHandler.login(userEmail, userPassword);
+                //boolean res = dbHandler.login(userEmail, userPassword);
 
                 if (validateEmail() && validatePassword()){
                     if (res) {
@@ -56,7 +56,8 @@ public class Login extends AppCompatActivity {
                         //openProfile();
                     }
                     else {
-                        Toast.makeText(getApplicationContext(), "User Not Found ! Check Username and Password !", Toast.LENGTH_LONG).show();                   }
+                        Toast.makeText(getApplicationContext(), "User Not Found ! Check Username and Password !", Toast.LENGTH_LONG).show();
+                    }
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Invalid Login Credentials", Toast.LENGTH_SHORT).show();

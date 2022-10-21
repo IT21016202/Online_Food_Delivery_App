@@ -91,10 +91,10 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
-    private void openCart() {
+   /* private void openCart() {
         Intent intent = new Intent(this, com.example.foodapp.cart.class);
         startActivity(intent);
-    }
+    }*/
 
     private void openMain() {
         Intent intent = new Intent(this, com.example.foodapp.Order_Details.class);
