@@ -1,3 +1,5 @@
+
+
 package com.example.foodapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +17,15 @@ public class SideMenu extends AppCompatActivity {
     TextView myOrders;
     TextView reviews;
     TextView cards;
+    TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_side_menu);
+
+        username = findViewById(R.id.txtUsernameInSideMenu);
+
 
         profile = findViewById(R.id.txtMenuMyProfile);
         profile.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +58,12 @@ public class SideMenu extends AppCompatActivity {
             public void onClick(View view) { goToMycards(); }
         });
 
+        foodMenu = findViewById(R.id.txtMenuFoodMenu);
+        foodMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goToFoodMenu(); }
+        });
+
 
 
 
@@ -79,8 +91,14 @@ public class SideMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void  goToFoodMenu(){
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
+    }
+
 
 
 
 
 }
+
