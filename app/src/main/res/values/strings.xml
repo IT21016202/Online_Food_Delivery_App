@@ -7,16 +7,13 @@
 
     <string name="loginhere"><b>Log In Here</b></string>
     <string name="username">Username</string>
-    <string name="usernamehint">Enter your username here</string>
     <string name="password">Password</string>
-    <string name="passwordhint">Enter your password here</string>
     <string name="min8charactores">Minimum 8 Characters</string>
     <string name="frogotpassword">Frogot Your Password ?</string>
     <string name="didnthaveaccount">Didn\'t Have and Account ?</string>
 
     <string name="registerhere"><b>Register Here</b></string>
     <string name="fullname">Full Name</string>
-    <string name="lastname">Last Name</string>
     <string name="email">E-mail</string>
     <string name="mobile">Mobile</string>
     <string name="birthdate">Birth Date</string>
@@ -24,8 +21,8 @@
     <string name="reenterpassword">Re-Enter Password</string>
     <string name="register"><b>Register</b></string>
     <string name="alreadyhaveaccount">Already Have an Account ?</string>
+    <string name="passwordPattern">Password Should Contain Minimum 8 Characters, At Least One Letter and At least One Digit</string>
 
-    <string name="hiuser"><b>Hi User !</b></string>
     <string name="logout">Log Out</string>
     <string name="name">Name</string>
     <string name="editprofileinaccount"><b>Edit Profile</b></string>
@@ -59,6 +56,18 @@
     <string name="reviewdescription">Review Description</string>
     <string name="addreviewbtn"><b>Save Review</b></string>
     <string name="addyourreview"><b>Add Your Review</b></string>
+
+    <string name="Foodname">Barbeque Chicken Pizza</string>
+    <string name="Quantity_txt">Quantity</string>
+    <string name="title_activity_side_menu2">SideMenu2</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
 
 </resources>

@@ -3,8 +3,10 @@ package com.example.foodapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SideMenu extends AppCompatActivity {
@@ -15,11 +17,35 @@ public class SideMenu extends AppCompatActivity {
     TextView myOrders;
     TextView reviews;
     TextView cards;
+    TextView username;
+    TextView orderManage, foodMenuManage;
+    ImageView orderManageImg, foodMenuManageImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_side_menu);
+
+        username = findViewById(R.id.txtUsernameInSideMenu);
+
+        orderManage = findViewById(R.id.txtOrderManagement);
+        foodMenuManage = findViewById(R.id.txtFoodMenuManagement);
+        orderManageImg = findViewById(R.id.imgOderManagement);
+        foodMenuManageImg = findViewById(R.id.imgFoodMenuManagement);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("session", MODE_PRIVATE);
+        String email1 = sharedPreferences.getString("Email", null);
+        String type = sharedPreferences.getString("Type", null);
+        username.setText(email1);
+
+        if (type.equals("admin")) {
+            orderManage.setVisibility(View.VISIBLE);
+            foodMenuManage.setVisibility(View.VISIBLE);
+            orderManageImg.setVisibility(View.VISIBLE);
+            foodMenuManageImg.setVisibility(View.VISIBLE);
+        }
+
 
         profile = findViewById(R.id.txtMenuMyProfile);
         profile.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +78,12 @@ public class SideMenu extends AppCompatActivity {
             public void onClick(View view) { goToMycards(); }
         });
 
+        foodMenu = findViewById(R.id.txtMenuFoodMenu);
+        foodMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goToFoodMenu(); }
+        });
+
 
 
 
@@ -76,6 +108,11 @@ public class SideMenu extends AppCompatActivity {
 
     public void goToMycards(){
         Intent intent = new Intent(this,saveCardDetails.class);
+        startActivity(intent);
+    }
+
+    public void  goToFoodMenu(){
+        Intent intent = new Intent(this, MainMenu.class);
         startActivity(intent);
     }
 
