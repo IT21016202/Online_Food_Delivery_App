@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class UserAccount extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class UserAccount extends AppCompatActivity {
     private Button editProfileButton, changePasswordButton, deleteProfileButton, logoutButton;
     private TextView name, email, mobile, birthDate, username;
     private DBHandler dbHandler = new DBHandler(this);
+    private ImageView toMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class UserAccount extends AppCompatActivity {
         mobile = findViewById(R.id.txtMobileProfile);
         birthDate = findViewById(R.id.txtBirthDayProfile);
         username = findViewById(R.id.txtHiUser);
+        toMenu = findViewById(R.id.toMenu);
 
         SharedPreferences sharedPreferences = getSharedPreferences("session", MODE_PRIVATE);
         String name1 = sharedPreferences.getString("Name", null);
@@ -73,6 +76,13 @@ public class UserAccount extends AppCompatActivity {
             }
         });
 
+        toMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMenuPage();
+            }
+        });
+
     }
 
     public void goToEditProfilePage(){
@@ -99,6 +109,11 @@ public class UserAccount extends AppCompatActivity {
         SessionManagement sessionManagement = new SessionManagement(UserAccount.this);
         sessionManagement.removeSession();
         goToMainPage();
+    }
+
+    public void goToMenuPage(){
+        Intent intent = new Intent(this, SideMenu.class);
+        startActivity(intent);
     }
 
 
