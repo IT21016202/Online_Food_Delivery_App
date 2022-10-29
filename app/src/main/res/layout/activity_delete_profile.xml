@@ -101,18 +101,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/foodiction" />
 
-    <ImageView
-        android:id="@+id/btnToMenu4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-
     <TextView
         android:id="@+id/txtDeleteProfileWarning"
         android:layout_width="336dp"
@@ -126,4 +114,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtTopBack4"
         app:layout_constraintVertical_bias="0.378" />
+
+    <ImageView
+        android:id="@+id/toMenuDeleteProfile"
+        android:layout_width="31dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

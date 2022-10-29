@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class EditProfile extends AppCompatActivity {
     private Button editProfile;
     private Context context;
     private DBHandler dbHandler = new DBHandler(this);
+    private ImageView toMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,8 @@ public class EditProfile extends AppCompatActivity {
         editEmail = findViewById(R.id.inputEmail2);
         editMobile = findViewById(R.id.inputMobile2);
         editBirthDate = findViewById(R.id.inputBirthDate2);
-
         editProfile = findViewById(R.id.btnEditProfile);
+        toMenu = findViewById(R.id.toMenuEditProfile);
 
         SharedPreferences sharedPreferences = getSharedPreferences("session", MODE_PRIVATE);
         String name1 = sharedPreferences.getString("Name", null);
@@ -105,6 +107,13 @@ public class EditProfile extends AppCompatActivity {
                 }
             }
         });
+
+        toMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMenuPage();
+            }
+        });
     }
 
     public boolean validateEmail(){
@@ -131,7 +140,6 @@ public class EditProfile extends AppCompatActivity {
         else
             return true;
     }
-
 
 
     public boolean validateMobile(){
@@ -161,4 +169,10 @@ public class EditProfile extends AppCompatActivity {
             return true;
         }
     }
+
+    public void goToMenuPage(){
+        Intent intent = new Intent(this, SideMenu.class);
+        startActivity(intent);
+    }
 }
+

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class ChangePassword extends AppCompatActivity {
     Button saveChanges;
     TextView currentPassword, newPassword, reEnterPassword;
     Context context;
+    ImageView toMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class ChangePassword extends AppCompatActivity {
         currentPassword = findViewById(R.id.inputPassowrd);
         newPassword = findViewById(R.id.inputPassowrd4);
         reEnterPassword = findViewById(R.id.inputPassowrd3);
+        toMenu = findViewById(R.id.toMenuChangePassword);
 
         saveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +70,13 @@ public class ChangePassword extends AppCompatActivity {
                 }
             }
         });
+
+        toMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMenuPage();
+            }
+        });
     }
 
     public boolean validatePassword(){
@@ -93,5 +103,10 @@ public class ChangePassword extends AppCompatActivity {
         }
         else
             return true;
+    }
+
+    public void goToMenuPage(){
+        Intent intent = new Intent(this, SideMenu.class);
+        startActivity(intent);
     }
 }

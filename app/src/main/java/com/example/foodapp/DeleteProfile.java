@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class DeleteProfile extends AppCompatActivity {
     Button deleteProfile;
     EditText currentPassword;
     Context context;
+    ImageView toMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class DeleteProfile extends AppCompatActivity {
 
         deleteProfile = findViewById(R.id.btnDeleteProfile1);
         currentPassword = findViewById(R.id.inputPassowrd5);
+        toMenu = findViewById(R.id.toMenuDeleteProfile);
 
             deleteProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,8 +92,14 @@ public class DeleteProfile extends AppCompatActivity {
                     }
                 }
             });
-    }
 
+            toMenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    goToMenuPage();
+                }
+            });
+    }
 
 
     public void logOut(){
@@ -101,6 +110,11 @@ public class DeleteProfile extends AppCompatActivity {
 
     public void goToMainPage(){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToMenuPage(){
+        Intent intent = new Intent(this, SideMenu.class);
         startActivity(intent);
     }
 

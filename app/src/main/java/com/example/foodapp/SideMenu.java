@@ -116,6 +116,12 @@ public class SideMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void gotToMainMenu(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
 
 
 
