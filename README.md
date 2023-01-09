@@ -1,2 +1,2 @@
 # Online_Food_Delivery_App
-MAD Project
+SLIIT 2nd Year MAD Project
