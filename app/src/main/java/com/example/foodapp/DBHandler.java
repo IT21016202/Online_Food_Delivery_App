@@ -133,7 +133,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String id1  = Integer.toString(id);
         Cursor cursor = sqLiteDatabase.rawQuery("update Users set Password = ? where ID = ?", new String[]{newPassword, id1});
-        sqLiteDatabase.close();
+        //sqLiteDatabase.close();
 
         if (cursor.getCount()>0)
             return true;
@@ -151,7 +151,5 @@ public class DBHandler extends SQLiteOpenHelper {
             return true;
         else
             return false;
-
-
     }
 }

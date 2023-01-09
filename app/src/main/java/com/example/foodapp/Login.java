@@ -159,7 +159,6 @@ public class Login extends AppCompatActivity {
         try {
             DBHandler db = new DBHandler(this);
             UserModel userModel = db.getLoggedUser(username.getText().toString());
-            //System.out.println(userModel.getId());
 
             SessionManagement sessionManagement = new SessionManagement((Login.this));
             sessionManagement.saveSession(userModel);
@@ -169,5 +168,3 @@ public class Login extends AppCompatActivity {
         openProfile();
     }
 }
-
-//add loyalty customers

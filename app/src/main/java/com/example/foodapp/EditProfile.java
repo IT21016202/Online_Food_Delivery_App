@@ -50,6 +50,7 @@ public class EditProfile extends AppCompatActivity {
         String birthDate1 = sharedPreferences.getString("BirthDate", null);
 
         editName.setText(name1);
+        editName.setEnabled(false);
         editBirthDate.setText(birthDate1);
         editEmail.setText(email1);
         editMobile.setText(mobile1);
